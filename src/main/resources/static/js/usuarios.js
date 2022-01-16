@@ -45,10 +45,7 @@ async function eliminarUsuario(id) {
 
 	const request = await fetch('api/usuarios/' + id, {
 		method: 'DELETE',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		}
+		headers:getHeaders()
 
 	});
 	location.reload()
