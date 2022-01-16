@@ -6,11 +6,11 @@ $(document).ready(function() {
 
 async function iniciarSesion() {
 	let datos = {};
-	
+
 	datos.email = document.getElementById('txtEmail').value;
 	datos.password = document.getElementById('txtPassword').value;
 
-	
+
 	const request = await fetch('api/login', {
 		method: 'POST',
 		headers: {
@@ -19,8 +19,12 @@ async function iniciarSesion() {
 		},
 		body: JSON.stringify(datos)
 	});
-	const respuesta = await request.json();
-
+	const respuesta = await request.text();
+	if (respuesta == "OK") {
+		window.location.href = 'usuarios.html'
+	} else {
+		alert('las credenciales son incorrectas ');
+	}
 
 
 }
